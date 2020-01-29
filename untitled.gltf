@@ -1,0 +1,105 @@
+{
+    "accessors" : [{
+        "bufferView" : 0,
+        "componentType" : 5123,
+        "count" : 900,
+        "max" : [151],
+        "min" : [0],
+        "type" : "SCALAR"
+    },{
+        "bufferView" : 1,
+        "componentType" : 5126,
+        "count" : 152,
+        "max" : [1,1,1],
+        "min" : [-1,-1,-1],
+        "type" : "VEC3"
+    },{
+        "bufferView" : 2,
+        "componentType" : 5126,
+        "count" : 152,
+        "max" : [0.989868,0.989868,0.989868],
+        "min" : [-0.989868,-0.989868,-0.989868],
+        "type" : "VEC3"
+    },{
+        "bufferView" : 3,
+        "componentType" : 5126,
+        "count" : 50,
+        "max" : [2.04167],
+        "min" : [0],
+        "type" : "SCALAR"
+    },{
+        "bufferView" : 4,
+        "componentType" : 5126,
+        "count" : 50,
+        "max" : [0,0,-0,1],
+        "min" : [-0.858214,0,-0,0.513291],
+        "type" : "VEC4"
+    }],
+    "animations" : [{
+        "channels" : [{
+            "sampler" : 0,
+            "target" : {
+                "node" : 0,
+                "path" : "rotation"
+            }
+        }],
+        "name" : "Action",
+        "samplers" : [{
+            "input" : 3,
+            "interpolation" : "LINEAR",
+            "output" : 4
+        }]
+    }],
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter",
+        "version" : "2.0"
+    },
+    "bufferViews" : [{
+        "buffer" : 0,
+        "byteLength" : 1800,
+        "byteOffset" : 0,
+        "target" : 34963
+    },{
+        "buffer" : 0,
+        "byteLength" : 1824,
+        "byteOffset" : 1800,
+        "target" : 34962
+    },{
+        "buffer" : 0,
+        "byteLength" : 1824,
+        "byteOffset" : 3624,
+        "target" : 34962
+    },{
+        "buffer" : 0,
+        "byteLength" : 200,
+        "byteOffset" : 5448
+    },{
+        "buffer" : 0,
+        "byteLength" : 800,
+        "byteOffset" : 5648
+    }],
+    "buffers" : [{
+        "byteLength" : 6448,
+        "uri" : "untitled.bin"
+    }],
+    "meshes" : [{
+        "name" : "Cube.001",
+        "primitives" : [{
+            "attributes" : {
+                "NORMAL" : 2,
+                "POSITION" : 1
+            },
+            "indices" : 0
+        }]
+    }],
+    "nodes" : [{
+        "mesh" : 0,
+        "name" : "Cube",
+        "scale" : [0.418722,1.5846,1.5846]
+    }],
+    "scene" : 0,
+    "scenes" : [{
+        "name" : "Scene",
+        "nodes" : [0]
+    }]
+}
