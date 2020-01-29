@@ -18,17 +18,14 @@ canvas{
  <body>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"> </script>-->
 <script src="three.js"></script>
- <script src="GLTFLoader.js"></script>
-	 <!--
-
+<script src="GLTFLoader.js"></script>
 <script src="FBXLoader.js"></script>
--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"> </script>
 
 <script>
   var scene=new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(72,window.innerWidth/window.innerHeight,0.1,1000);
-  camera.position.z = 5;
+  camera.position.z = 10;
   var renderer =new THREE.WebGLRenderer({antialias:true});
   renderer.setClearColor("#e5e5e5");
   renderer.setSize(window.innerWidth,window.innerHeight);
@@ -43,21 +40,35 @@ canvas{
 
 
 
-  var geometry = new THREE.SphereGeometry(1,10,10);
-  var materialSphere = new THREE.MeshLambertMaterial({color:0xFFCC00});
-  var mesh = new THREE.Mesh(geometry,materialSphere)
-  scene.add(mesh);
-
+  
 
   var light = new THREE.PointLight( 0xFFFFFF, 1, 500 );
   light.position.set( 50, 50, 50 );
   scene.add( light );
+  var blackBox=new THREE.Scene();
 
   var loader = new THREE.GLTFLoader();
+  var x=40;
+  var mod =new THREE.BufferGeometry();
+  var mixer;
+  var clock=new THREE.Clock();
+ 
   loader.load('untitled.gltf',function(model)
   {
-    scene.add(model.scene);
+    mod = model.scene.children[0];
+    mixer = new THREE.AnimationMixer( model.scene );
+		var action = mixer.clipAction( model.animations[ 0 ] );
+        action.play();
+        model.scene.rotation.y=6;
+      mod.rotation.y=5;
+    scene.add( mod );
+    
+    mod.position.x=4;
+   
   },undefined,function(error){console.error(error);});
+
+  mod.position.x=-4;
+  
   
   /*var loader = new THREE.ObjectLoader();
   loader.load("untitled.json",function(obj){scene.add(obj);}, 
@@ -70,10 +81,21 @@ canvas{
 		console.error( 'An error happened' );
 	}
   );*/
+  
  
+
+ // scene.add(blackBox);
+ 
+
  var displayScene =function(){
   requestAnimationFrame(displayScene);
+  var delta = clock.getDelta();
+
+	 mixer.update( delta );
+ 
   renderer.render(scene,camera);
+    
+  
 
   
   }
