@@ -86,6 +86,19 @@ canvas{
 
  // scene.add(blackBox);
  
+document.addEventListener('mousemove',onDocumentMouseMove, false)
+	
+  function onDocumentMouseMove(event) {
+      event.preventDefault();
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    // console.log("moved",mouse);
+    mod.lookAt(new THREE.Vector3(mouse.x,mouse.y,2));
+
+
+  }
+	
+	
 
  var displayScene =function(){
   requestAnimationFrame(displayScene);
